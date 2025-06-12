@@ -1,21 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
+import tailwindcss from '@tailwindcss/vite'
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
-  base: '/gbu/', // 👈 repo name for GitHub Pages
-  plugins: [react()],
+  base: '/gbu/',
+  plugins: [react(), tailwindcss()],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // cleaner aliasing
+      '@': '/src',
     },
   },
   server: {
-    historyApiFallback: true, // Handle SPA routing fallback (for dev only)
+    historyApiFallback: true, // Handle SPA routing fallback
   }
 })
